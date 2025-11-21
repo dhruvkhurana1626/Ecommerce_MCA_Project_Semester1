@@ -2,27 +2,35 @@ package com.ecommerce.MCA.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Entity
 public class Customer {
     @Id
-    int id;
+    private int id;
 
     @Column
-    String name;
+    private String name;
 
     @Column
     @NotNull
-    int age;
+    private int age;
 
     @Column(nullable = false)
     @Email
-    String email;
+    private String email;
 
     @Column
     @Enumerated(value = EnumType.STRING)
-    Gender gender;
+    private Gender gender;
 
     @Column(length = 10)
-    int phonenumber;
+    private int phonenumber;
 }

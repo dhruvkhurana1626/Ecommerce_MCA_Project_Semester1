@@ -1,31 +1,35 @@
 package com.ecommerce.MCA.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.validator.constraints.UniqueElements;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Entity
 public class Seller {
     @Id
-    int id;
+    private int id;
 
     @Column
-    String name;
+    private String name;
 
     @Column(nullable = false)
-    int aadharcard;
+    private int aadharcard;
 
     @Column
-    int age;
-
-    @Column
-    @Enumerated(value = EnumType.STRING)
-    Gender gender;
+    private int age;
 
     @Column(length = 10)
-    int phonenumber;
+    private int phonenumber;
 
     @Column(nullable = false)
     @UniqueElements
     @Email
-    String email;
+    private String email;
 }
