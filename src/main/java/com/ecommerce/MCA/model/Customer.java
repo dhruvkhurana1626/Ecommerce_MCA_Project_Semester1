@@ -6,6 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.boot.autoconfigure.web.WebProperties;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,7 +19,9 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Customer {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column
@@ -31,6 +39,12 @@ public class Customer {
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
 
-    @Column(length = 10)
+    @Column(length = 10,nullable = false)
     private int phonenumber;
+
+    @CreationTimestamp
+    Date createdAt;
+
+    @OneToMany(mappedBy = "customer")
+    List<Review> reviewList = new ArrayList<>();
 }

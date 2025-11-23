@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.UniqueElements;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -19,11 +22,8 @@ public class Seller {
     @Column
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     private int aadharcard;
-
-    @Column
-    private int age;
 
     @Column(length = 10)
     private int phonenumber;
@@ -32,4 +32,7 @@ public class Seller {
     @UniqueElements
     @Email
     private String email;
+
+    @OneToMany(mappedBy = "seller")
+    List<Product> productList = new ArrayList<>();
 }
