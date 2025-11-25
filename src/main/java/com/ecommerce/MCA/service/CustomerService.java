@@ -18,11 +18,12 @@ public class CustomerService {
         return savedCustomer;
     }
 
-    public Customer getCustomerById(int id){
+    public Customer getCustomer(int id){
         Optional<Customer> optionalCustomer = customerRepository.findById(id);
         if(optionalCustomer.isEmpty()){
-            throw new CustomerNotFound("Invalid id");
+            throw new CustomerNotFound("invalid id");
         }
-        return optionalCustomer.get();
+        Customer customer = optionalCustomer.get();
+        return customer;
     }
 }

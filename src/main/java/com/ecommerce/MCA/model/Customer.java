@@ -2,13 +2,8 @@ package com.ecommerce.MCA.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.boot.autoconfigure.web.WebProperties;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,6 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@ToString
 public class Customer {
 
     @Id
@@ -40,11 +36,12 @@ public class Customer {
     private Gender gender;
 
     @Column(length = 10,nullable = false)
-    private int phonenumber;
+    private String phonenumber;
 
     @CreationTimestamp
     Date createdAt;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany
+    @JoinColumn(name="customer_id")
     List<Review> reviewList = new ArrayList<>();
 }

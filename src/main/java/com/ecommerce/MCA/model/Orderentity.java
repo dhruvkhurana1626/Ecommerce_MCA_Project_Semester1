@@ -27,6 +27,7 @@ public class Orderentity {
     Orderstatus orderstatus;
 
     @ManyToMany
+    @JoinTable
     List<Product> products = new ArrayList<>();
 
 }
