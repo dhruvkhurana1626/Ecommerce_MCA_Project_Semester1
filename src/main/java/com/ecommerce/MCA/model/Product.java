@@ -30,7 +30,7 @@ public class Product {
     @JoinColumn(name = "seller_id")
     Seller seller;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
     List<Review> review = new ArrayList<>();
 
     @ManyToMany(mappedBy = "products")
