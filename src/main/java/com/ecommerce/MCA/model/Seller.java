@@ -1,13 +1,12 @@
 package com.ecommerce.MCA.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @NoArgsConstructor
@@ -15,24 +14,30 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@ToString
+@Builder
 public class Seller {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column
     private String name;
 
     @Column(nullable = false,unique = true)
-    private int aadharcard;
+    private String aadharcard;
 
     @Column(length = 10)
-    private int phonenumber;
+    private String phonenumber;
 
     @Column(nullable = false)
-    @UniqueElements
     @Email
     private String email;
 
-    @OneToMany(mappedBy = "seller")
+    @CreationTimestamp
+    Date createdAt;
+
+    @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
     List<Product> productList = new ArrayList<>();
 }

@@ -1,4 +1,5 @@
 package com.ecommerce.MCA.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -14,6 +15,8 @@ import java.util.List;
 @Setter
 @Entity
 @ToString
+@Builder
+
 public class Customer {
 
     @Id
@@ -43,5 +46,6 @@ public class Customer {
 
     @OneToMany
     @JoinColumn(name="customer_id")
+    @JsonIgnore
     List<Review> reviewList = new ArrayList<>();
 }

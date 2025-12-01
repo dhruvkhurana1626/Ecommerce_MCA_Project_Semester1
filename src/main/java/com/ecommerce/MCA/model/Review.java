@@ -1,4 +1,5 @@
 package com.ecommerce.MCA.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -16,6 +17,7 @@ public class Review {
 
     @Column
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(nullable = false)
@@ -31,6 +33,7 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "product_id")
+    @JsonIgnore
     Product product;
 
 }

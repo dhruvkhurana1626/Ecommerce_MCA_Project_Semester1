@@ -1,9 +1,6 @@
 package com.ecommerce.MCA.model;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -11,6 +8,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name="address_details")
+@Builder
 public class Address {
     @Id
     @Column
@@ -28,7 +26,7 @@ public class Address {
     @Column
     private int pincode;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="customer_id")
     Customer customer;
 }
