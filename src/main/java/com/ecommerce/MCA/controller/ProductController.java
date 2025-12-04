@@ -18,13 +18,13 @@ public class ProductController {
 
     //add products
     @PostMapping
-    public ResponseEntity addProduct(@RequestParam("seller-id") int sellerId,
+    public ResponseEntity addProduct(@RequestParam("sellerId") int sellerId,
                                      @RequestBody ProductRequest productRequest){
         try{
             ProductResponse productResponse = productService.addProduct(sellerId,productRequest);
             return new ResponseEntity(productResponse, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity(e.getMessage(),HttpStatus.NOT_FOUND);
+            return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
         }
     }
 }

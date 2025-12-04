@@ -3,13 +3,19 @@ import com.ecommerce.MCA.dto.request.CustomerRequest;
 import com.ecommerce.MCA.dto.response.CustomerResponse;
 import com.ecommerce.MCA.exception.CustomerNotFound;
 import com.ecommerce.MCA.model.Customer;
+import com.ecommerce.MCA.model.Gender;
 import com.ecommerce.MCA.repository.CustomerRepository;
 import com.ecommerce.MCA.transformer.CustomerTransformer;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class CustomerService {
 
@@ -36,4 +42,22 @@ public class CustomerService {
     }
 
 
+    public List<CustomerResponse> getCustomerByGender(Gender gender) {
+
+        List<Customer> customersByGender = customerRepository.findByGender(gender);
+        List<CustomerResponse> customerResponses = new ArrayList<>();
+        for(Customer customer: customersByGender) {
+            customerResponses.add(CustomerTransformer.customerToCustomerResponse(customer));
+        }
+        return customerResponses;
+    }
+
+    public List<CustomerResponse> getCustomerByAge(int age) {
+        List<Customer> customerByAge = customerRepository.findByAgeGreaterThanEqual(age);
+        List<CustomerResponse> customerResponses = new ArrayList<>();
+        for(Customer customer: customerByAge){
+            customerResponses.add(CustomerTransformer.customerToCustomerResponse(customer));
+        }
+        return customerResponses;
+    }
 }

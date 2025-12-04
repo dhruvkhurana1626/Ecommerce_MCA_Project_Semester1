@@ -1,17 +1,23 @@
 package com.ecommerce.MCA.dto.response;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Builder
 public class AddressResponse {
-    private String houseno;
+
+    private String houseNo;
+
     private String city;
+
     private String state;
-    private int pincode;
+
+    private int pinCode;
+
     private CustomerResponse customer;
 }

@@ -25,11 +25,11 @@ public class Review {
     @Max(value=5)
     int rating;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "customer_id")
     Customer customer;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "product_id")
     @JsonIgnore
     Product product;

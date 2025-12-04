@@ -26,6 +26,10 @@ public class Orderentity {
     @Enumerated(value = EnumType.STRING)
     Orderstatus orderstatus;
 
+    @ManyToOne
+    @JoinColumn(name="customer_id")
+    Customer customer;
+
     @ManyToMany
     @JoinTable
     List<Product> products = new ArrayList<>();

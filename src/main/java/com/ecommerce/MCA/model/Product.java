@@ -14,8 +14,8 @@ import java.util.List;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @Column
     private String name;
@@ -27,7 +27,7 @@ public class Product {
     Category category;
 
     @ManyToOne
-    @JoinColumn(name = "seller_id")
+    @JoinColumn(name="seller_id")
     Seller seller;
 
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)

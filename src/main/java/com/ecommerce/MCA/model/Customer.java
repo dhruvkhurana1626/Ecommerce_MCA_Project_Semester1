@@ -48,4 +48,9 @@ public class Customer {
     @JoinColumn(name="customer_id")
     @JsonIgnore
     List<Review> reviewList = new ArrayList<>();
+
+    @OneToMany
+    @JoinColumn(name="customer_id")
+    @JsonIgnore
+    List<Orderentity> orderentityList = new ArrayList<>();
 }

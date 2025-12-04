@@ -14,7 +14,7 @@ public class SellerTransformer {
                 .aadharcard(sellerRequest.getAadharcard())
                 .phonenumber(sellerRequest.getPhonenumber())
                 .email(sellerRequest.getEmail())
-                .productList(new ArrayList<>())
+                .products(new ArrayList<>())
                 .build();
 
     }

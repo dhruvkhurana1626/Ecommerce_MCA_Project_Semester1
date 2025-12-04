@@ -23,19 +23,17 @@ public class AddressService {
 
     public AddressResponse addAddress(int customerId, AddressRequest addressRequest) {
         Optional<Customer> customerOptional = customerRepository.findById(customerId);
-        if (customerOptional.isEmpty()) {
-            throw new CustomerNotFound("invalid customer id: " + customerId);
+        if(customerOptional.isEmpty()){
+            throw new CustomerNotFound("Customer Id Invalid");
         }
-
         Customer customer = customerOptional.get();
+        //DTO to Entity
         Address address = AddressTransformer.addressRequestToAddress(addressRequest);
-
         //relationship
         address.setCustomer(customer);
-
+        //Saved in Repo
         Address savedAddress = addressRepository.save(address);
-
-        //response
+        //return response
         return AddressTransformer.addressToAddressResponse(savedAddress);
     }
 }

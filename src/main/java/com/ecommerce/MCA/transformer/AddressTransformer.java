@@ -7,19 +7,19 @@ public class AddressTransformer {
 
     public static Address addressRequestToAddress(AddressRequest addressRequest){
         return Address.builder()
-                .houseno(addressRequest.getHouseno())
+                .houseNo(addressRequest.getHouseNo())
                 .city(addressRequest.getCity())
                 .state(addressRequest.getState())
-                .pincode(addressRequest.getPincode())
+                .pinCode(addressRequest.getPinCode())
                 .build();
     }
 
     public static AddressResponse addressToAddressResponse(Address address){
         return AddressResponse.builder()
-                .houseno(address.getHouseno())
+                .houseNo(address.getHouseNo())
                 .city(address.getCity())
                 .state(address.getState())
-                .pincode(address.getPincode())
+                .pinCode(address.getPinCode())
                 .customer(CustomerTransformer.customerToCustomerResponse(address.getCustomer()))
                 .build();
     }

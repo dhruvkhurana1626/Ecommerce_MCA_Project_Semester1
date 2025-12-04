@@ -33,8 +33,8 @@ public class ReviewController {
                                     @RequestParam("p-id") int productId,
                                     @RequestBody ReviewRequest reviewRequest){
         try{
-            ReviewResponse reviewResponse = ReviewService.addReview(customerId,productId,reviewRequest);
-            return new ResponseEntity(reviewResponse,HttpStatus.CREATED);
+            return new ResponseEntity(reviewService.addReview(customerId,productId,reviewRequest),
+                                      HttpStatus.CREATED);
         }
         catch (Exception e){
             return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);

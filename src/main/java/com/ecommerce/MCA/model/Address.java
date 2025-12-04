@@ -9,13 +9,15 @@ import lombok.*;
 @Entity
 @Table(name="address_details")
 @Builder
+
 public class Address {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private int id;
 
     @Column
-    private String houseno;
+    private String houseNo;
 
     @Column
     private String city;
@@ -24,7 +26,7 @@ public class Address {
     private String state;
 
     @Column
-    private int pincode;
+    private int pinCode;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="customer_id")

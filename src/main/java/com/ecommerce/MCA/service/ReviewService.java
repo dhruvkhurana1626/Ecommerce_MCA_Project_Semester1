@@ -47,10 +47,10 @@ public class ReviewService {
         review.setProduct(product);
 
         //save review
-        reviewRepository.save(review);
+        Review savedReview = reviewRepository.save(review);
 
         //return
-        return ReveiwTransformer.reviewToReviewResponse(review);
+        return ReveiwTransformer.reviewToReviewResponse(savedReview);
     }
 
     public Review getReviewById(int id){

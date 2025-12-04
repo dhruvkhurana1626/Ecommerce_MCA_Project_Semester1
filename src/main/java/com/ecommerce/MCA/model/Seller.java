@@ -1,4 +1,5 @@
 package com.ecommerce.MCA.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
@@ -8,6 +9,7 @@ import org.hibernate.validator.constraints.UniqueElements;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -38,6 +40,8 @@ public class Seller {
     @CreationTimestamp
     Date createdAt;
 
-    @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
-    List<Product> productList = new ArrayList<>();
+    @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL)
+    @JsonIgnore
+    List<Product> products = new ArrayList<>();
+
 }

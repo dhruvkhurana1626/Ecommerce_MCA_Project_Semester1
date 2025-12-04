@@ -1,14 +1,18 @@
 package com.ecommerce.MCA.dto.request;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 public class AddressRequest {
-    private String houseno;
+
+    private String houseNo;
+
     private String city;
+
     private String state;
-    private int pincode;
+
+    private int pinCode;
+
 }

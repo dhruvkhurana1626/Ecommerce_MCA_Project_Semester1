@@ -32,14 +32,15 @@ public class ProductService {
 
         //Set the Relationship
         Seller seller = sellerOptional.get();
-        seller.getProductList().add(product);
+        seller.getProducts().add(product);
         product.setSeller(seller);
 
         //Save Seller + Product
         Seller savedSeller = sellerRepository.save(seller);
 
         //Entity to DTO
-        ProductResponse productResponse= ProductTransformer.productToProductResponse(product);
-        return productResponse;
+        int size = savedSeller.getProducts().size();
+        Product savedProduct = savedSeller.getProducts().get(size-1);
+        return ProductTransformer.productToProductResponse(savedProduct);
     }
 }
