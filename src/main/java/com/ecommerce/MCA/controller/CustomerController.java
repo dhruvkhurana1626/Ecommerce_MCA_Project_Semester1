@@ -2,6 +2,7 @@ package com.ecommerce.MCA.controller;
 
 import com.ecommerce.MCA.dto.request.CustomerRequest;
 import com.ecommerce.MCA.dto.response.CustomerResponse;
+import com.ecommerce.MCA.exception.CustomerNotFound;
 import com.ecommerce.MCA.model.Gender;
 import com.ecommerce.MCA.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,4 +52,15 @@ public class CustomerController {
         List<CustomerResponse> responseList = customerService.getCustomerByAge(age);
         return new ResponseEntity(responseList,HttpStatus.OK);
      }
+
+     @DeleteMapping
+    public ResponseEntity deleteCustomerById(@RequestParam int customerId){
+        try {
+            customerService.deleteCustomerById(customerId);
+            return new ResponseEntity("Customer with :" + customerId + "is deleted",HttpStatus.GONE);
+        } catch (CustomerNotFound e) {
+            return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+     }
+
 }

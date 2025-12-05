@@ -44,6 +44,9 @@ public class Customer {
     @CreationTimestamp
     Date createdAt;
 
+    @OneToOne(mappedBy = "customer")
+    Address address;
+
     @OneToMany
     @JoinColumn(name="customer_id")
     @JsonIgnore

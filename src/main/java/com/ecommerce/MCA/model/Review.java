@@ -3,6 +3,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @NoArgsConstructor
@@ -25,10 +26,12 @@ public class Review {
     @Max(value=5)
     int rating;
 
+    @NotNull
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "customer_id")
     Customer customer;
 
+    @NotNull
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "product_id")
     @JsonIgnore

@@ -14,6 +14,8 @@ import com.ecommerce.MCA.transformer.ReveiwTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -53,11 +55,25 @@ public class ReviewService {
         return ReveiwTransformer.reviewToReviewResponse(savedReview);
     }
 
-    public Review getReviewById(int id){
+    public ReviewResponse getReviewById(int id){
         Optional<Review> optionalReview = reviewRepository.findById(id);
         if(optionalReview.isEmpty()){
             throw new ReviewNotFound("Review not found");
         }
-        return optionalReview.get();
+        return ReveiwTransformer.reviewToReviewResponse(optionalReview.get());
+    }
+
+    public List<ReviewResponse> getReviewWithSpecificWord(String word) {
+        List<Review> reviews = reviewRepository.findByCommentContainingIgnoreCase(word);
+        if(reviews.size()==0){
+            throw new ReviewNotFound("The word "+word+" is not present in any Review.");
+        }
+
+        List<ReviewResponse> reviewResponseList = new ArrayList<>();
+        for(Review review : reviews){
+            reviewResponseList.add(ReveiwTransformer.reviewToReviewResponse(review));
+        }
+
+        return reviewResponseList;
     }
 }

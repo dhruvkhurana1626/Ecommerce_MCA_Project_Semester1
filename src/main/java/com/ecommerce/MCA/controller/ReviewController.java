@@ -40,4 +40,13 @@ public class ReviewController {
             return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("/searchReviewByWord")
+    public ResponseEntity getReviewWithSpecificWord(@RequestParam ("word") String word){
+        try {
+            return new ResponseEntity(reviewService.getReviewWithSpecificWord(word),HttpStatus.OK);
+        } catch (ReviewNotFound e) {
+            return new ResponseEntity(e.getMessage(),HttpStatus.FOUND);
+        }
+    }
 }
