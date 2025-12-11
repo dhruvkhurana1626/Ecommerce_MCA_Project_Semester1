@@ -10,10 +10,6 @@ import com.ecommerce.MCA.repository.CustomerRepository;
 import com.ecommerce.MCA.transformer.AddressTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 
