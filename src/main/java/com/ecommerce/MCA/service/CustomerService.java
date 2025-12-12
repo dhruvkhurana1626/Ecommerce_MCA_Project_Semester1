@@ -3,7 +3,7 @@ import com.ecommerce.MCA.dto.request.CustomerRequest;
 import com.ecommerce.MCA.dto.response.CustomerResponse;
 import com.ecommerce.MCA.exception.CustomerNotFound;
 import com.ecommerce.MCA.model.Customer;
-import com.ecommerce.MCA.model.Gender;
+import com.ecommerce.MCA.enums.Gender;
 import com.ecommerce.MCA.repository.CustomerRepository;
 import com.ecommerce.MCA.transformer.CustomerTransformer;
 import lombok.extern.slf4j.Slf4j;

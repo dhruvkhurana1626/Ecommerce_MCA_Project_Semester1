@@ -1,5 +1,6 @@
 package com.ecommerce.MCA.model;
 
+import com.ecommerce.MCA.enums.Orderstatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,10 +20,11 @@ public class Orderentity {
 
     @Id
     @Column
-    int id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
 
     @Column
-    int value;
+    private int value;
 
     @Column
     @Enumerated(value = EnumType.STRING)

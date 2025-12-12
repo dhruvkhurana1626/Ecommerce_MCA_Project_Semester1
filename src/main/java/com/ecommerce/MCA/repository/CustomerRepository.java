@@ -1,6 +1,6 @@
 package com.ecommerce.MCA.repository;
 import com.ecommerce.MCA.model.Customer;
-import com.ecommerce.MCA.model.Gender;
+import com.ecommerce.MCA.enums.Gender;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,5 +1,5 @@
 package com.ecommerce.MCA.dto.request;
-import com.ecommerce.MCA.model.Gender;
+import com.ecommerce.MCA.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

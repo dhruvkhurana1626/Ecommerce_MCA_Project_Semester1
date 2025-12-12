@@ -1,4 +1,5 @@
 package com.ecommerce.MCA.model;
+import com.ecommerce.MCA.enums.Category;
 import jakarta.persistence.*;
 import lombok.*;
 

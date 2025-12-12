@@ -1,4 +1,4 @@
-package com.ecommerce.MCA.model;
+package com.ecommerce.MCA.enums;
 
 public enum Category {
     FOOD,

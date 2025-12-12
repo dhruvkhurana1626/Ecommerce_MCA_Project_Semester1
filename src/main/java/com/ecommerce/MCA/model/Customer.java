@@ -1,4 +1,5 @@
 package com.ecommerce.MCA.model;
+import com.ecommerce.MCA.enums.Gender;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;

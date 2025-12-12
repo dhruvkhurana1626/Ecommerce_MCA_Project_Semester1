@@ -3,7 +3,7 @@ package com.ecommerce.MCA.controller;
 import com.ecommerce.MCA.dto.request.CustomerRequest;
 import com.ecommerce.MCA.dto.response.CustomerResponse;
 import com.ecommerce.MCA.exception.CustomerNotFound;
-import com.ecommerce.MCA.model.Gender;
+import com.ecommerce.MCA.enums.Gender;
 import com.ecommerce.MCA.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

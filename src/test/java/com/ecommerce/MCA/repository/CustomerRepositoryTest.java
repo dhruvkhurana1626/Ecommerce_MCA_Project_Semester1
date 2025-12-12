@@ -1,7 +1,7 @@
 package com.ecommerce.MCA.repository;
 
 import com.ecommerce.MCA.model.Customer;
-import com.ecommerce.MCA.model.Gender;
+import com.ecommerce.MCA.enums.Gender;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

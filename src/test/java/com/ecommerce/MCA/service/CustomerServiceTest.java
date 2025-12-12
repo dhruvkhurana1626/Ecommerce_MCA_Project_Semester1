@@ -1,12 +1,9 @@
 package com.ecommerce.MCA.service;
 
-import ch.qos.logback.classic.util.CopyOnInheritThreadLocal;
 import com.ecommerce.MCA.dto.response.CustomerResponse;
 import com.ecommerce.MCA.model.Customer;
-import com.ecommerce.MCA.model.Gender;
+import com.ecommerce.MCA.enums.Gender;
 import com.ecommerce.MCA.repository.CustomerRepository;
-import jakarta.inject.Inject;
-import org.ietf.jgss.GSSName;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

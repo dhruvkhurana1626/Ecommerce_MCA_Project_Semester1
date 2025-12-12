@@ -1,6 +1,6 @@
 package com.ecommerce.MCA.dto.response;
 
-import com.ecommerce.MCA.model.Category;
+import com.ecommerce.MCA.enums.Category;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
